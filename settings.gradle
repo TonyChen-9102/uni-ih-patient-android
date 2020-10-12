@@ -1,0 +1,2 @@
+rootProject.name='uni-ih-patient-android'
+include ':app'
