@@ -3,14 +3,15 @@ package com.bsoft.mhealthp;
 import android.app.Application;
 import android.util.Log;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.bsoft.mhealthp.libs.AppBase;
+import com.bsoft.mhealthp.paymodule.PayModule;
+import com.taobao.weex.WXSDKEngine;
+import com.taobao.weex.common.WXException;
 
 import io.dcloud.feature.sdk.DCSDKInitConfig;
 import io.dcloud.feature.sdk.DCUniMPSDK;
-import io.dcloud.feature.sdk.MenuActionSheetItem;
 
-public class App extends Application {
+public class App extends AppBase {
     @Override
     public void onCreate() {
         super.onCreate();
@@ -26,6 +27,11 @@ public class App extends Application {
                 Log.i("unimp","onInitFinished----"+b);
             }
         });
+        try {
+            WXSDKEngine.registerModule("NativePaymentModule", PayModule.class);
+        } catch (WXException e) {
+            e.printStackTrace();
+        }
         //初始化 uni小程序SDK ----end----------
     }
 }

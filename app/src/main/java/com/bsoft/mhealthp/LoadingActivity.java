@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 
-import com.demo.ck.uni_ih_patient_android.R;
+import com.bsoft.mhealthp.app.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

@@ -1,2 +1,4 @@
 rootProject.name='uni-ih-patient-android'
 include ':app'
+include ':libs'
+include ':paymodule'

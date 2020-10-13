@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.demo.ck.uni_ih_patient_android">
+    package="com.bsoft.mhealthp.app">
 
     <!-- ****************** uni start ***********************-->
     <!-- Barcode(二维码)  begin -->
@@ -108,6 +108,15 @@
                 <data android:scheme="h56131bcf" />
             </intent-filter>
         </activity>
+
+        <!--weixin-->
+        <activity
+            android:name="com.bsoft.mhealthp.foshan.wxapi.WXPayEntryActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true"
+            android:process=":io.dcloud.unimp"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
 
     </application>
 
