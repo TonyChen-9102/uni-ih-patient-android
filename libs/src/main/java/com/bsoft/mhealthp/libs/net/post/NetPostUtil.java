@@ -8,6 +8,7 @@ import com.alibaba.fastjson.JSON;
 import com.bsoft.mhealthp.libs.net.base.BaseObserver;
 import com.bsoft.mhealthp.libs.net.base.CoreResponse;
 import com.bsoft.mhealthp.libs.net.beans.NullResponse;
+import com.bsoft.mhealthp.libs.net.interceptor.HeaderInterceptor;
 import com.bsoft.mhealthp.libs.net.interceptor.NetLogInterceptor;
 import com.bsoft.mhealthp.libs.net.utils.SSLTools;
 
@@ -51,7 +52,9 @@ public class NetPostUtil {
                 .retryOnConnectionFailure(false)
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30, TimeUnit.SECONDS);
+                .readTimeout(30, TimeUnit.SECONDS)
+                //Head
+                .addInterceptor(new HeaderInterceptor());
 
         if (interceptors != null) {
             for (Interceptor interceptor : interceptors) {

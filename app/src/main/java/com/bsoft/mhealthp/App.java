@@ -5,10 +5,13 @@ import android.util.Log;
 
 import com.bsoft.mhealthp.jpush.JpushModule;
 import com.bsoft.mhealthp.libs.AppBase;
+import com.bsoft.mhealthp.libs.shapref.CoreSharpref;
 import com.bsoft.mhealthp.paymodule.PayModule;
 import com.taobao.weex.WXSDKEngine;
 import com.taobao.weex.common.WXException;
 
+import cn.jpush.android.api.JPushInterface;
+import io.dcloud.common.util.RuningAcitvityUtil;
 import io.dcloud.feature.sdk.DCSDKInitConfig;
 import io.dcloud.feature.sdk.DCUniMPSDK;
 
@@ -17,6 +20,11 @@ public class App extends AppBase {
     public void onCreate() {
         super.onCreate();
         uniInit();
+
+        if(RuningAcitvityUtil.getAppName(getBaseContext()).contains("io.dcloud.unimp")) {
+            JPushInterface.setDebugMode(CoreSharpref.getInstance().isEngineering());
+            JPushInterface.init(this);
+        }
     }
 
     private void uniInit(){

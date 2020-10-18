@@ -33,7 +33,7 @@ public class NetEnvironmentUtil {
 
         NetAddressVo vo = getCurEnvironment(context);
         if (vo != null) {
-            ConstantsHttp.httpApiUrl = vo.getHttpApiUrl2();
+            ConstantsHttp.httpApiUrl = vo.getHttpApiUrl();
             return true;
         } else {
             return false;

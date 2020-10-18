@@ -84,7 +84,6 @@ public class PayModule extends WXModule {
                 pay();
             }
         }
-
     }
 
     private void checkPermission(@NonNull Activity activity) {
