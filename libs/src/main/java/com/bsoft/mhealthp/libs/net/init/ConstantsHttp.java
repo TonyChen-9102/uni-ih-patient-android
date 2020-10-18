@@ -13,4 +13,5 @@ public class ConstantsHttp {
     public static String httpApiUrl;
 
     public static final String Device_Service = "cas.deviceService";
+    public static final String CAS_BASE_AGREEMENT_VERSION_SERVICE = "cas.baseAgreementVersionService";
 }

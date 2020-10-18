@@ -5,6 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 
 import com.bsoft.mhealthp.app.R;
+import com.bsoft.mhealthp.libs.shapref.CoreSharpref;
+import com.bsoft.mhealthp.libs.utils.SignCheck;
+import com.bsoft.mhealthp.libs.utils.ToastUtil;
+import com.bsoft.mhealthp.privacy.PrivacyConfirmDialog;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -23,13 +27,33 @@ public class LoadingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_loading);
 
         //tank.key 73:E9:99:CA:C3:99:08:B1:FF:27:0C:53:E5:5F:19:5D:2E:F7:01:D3
-//        SignCheck signCheck = new SignCheck(this, "73:E9:99:CA:C3:99:08:B1:FF:27:0C:53:E5:5F:19:5D:2E:F7:01:D3");
-//        if (!signCheck.check()) {
-//            ToastUtil.toast("签名错误");
-//            finish();
-//            return;
-//        }
-        loadingStart();
+        SignCheck signCheck = new SignCheck(this, "73:E9:99:CA:C3:99:08:B1:FF:27:0C:53:E5:5F:19:5D:2E:F7:01:D3");
+        if (!signCheck.check()) {
+            ToastUtil.toast("签名错误");
+            finish();
+            return;
+        }
+        showPrivacyDialog();
+    }
+
+    private void showPrivacyDialog() {
+        if (!CoreSharpref.getInstance().isAgreePrivacy()) {
+            PrivacyConfirmDialog.getInstance()
+                    .setDialogListener(new PrivacyConfirmDialog.DialogListener() {
+                        @Override
+                        public void onComplete(boolean ok, String tag) {
+                            CoreSharpref.getInstance().setAgreePrivacy(ok);
+                            if (ok) {
+                                loadingStart();
+                            } else {
+                                finish();
+                            }
+                        }
+                    })
+                    .show(LoadingActivity.this);
+        } else {
+            loadingStart();
+        }
     }
 
 

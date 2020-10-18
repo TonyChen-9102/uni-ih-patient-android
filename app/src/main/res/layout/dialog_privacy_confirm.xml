@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="@dimen/dp_300"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_corner_white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/core_margin"
+            android:layout_marginRight="@dimen/core_margin"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#3a3a3a"
+                android:textSize="@dimen/core_big_body"
+                android:textStyle="bold"
+                android:text="用户注册协议及隐私协议策略" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:lineSpacingExtra="@dimen/dp_2"
+                android:textSize="@dimen/core_main_body"
+                android:textColor="#3a3a3a"
+                android:text="@string/main_privacy_msg" />
+
+            <TextView
+                android:id="@+id/tvService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textSize="@dimen/core_main_body"
+                android:textColor="#349FFE"
+                android:text="《用户注册协议》" />
+
+            <TextView
+                android:id="@+id/tvPrivate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:textSize="@dimen/core_main_body"
+                android:textColor="#349FFE"
+                android:text="《隐私协议》" />
+
+        </LinearLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_height="@dimen/dp_40">
+
+            <View
+                android:id="@+id/center"
+                android:layout_width="@dimen/dp_1"
+                android:layout_height="0dp"
+                android:background="#e4e4e4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0.5" />
+
+            <TextView
+                android:id="@+id/tvDisAgree"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="不同意"
+                android:gravity="center"
+                android:textColor="#3a3a3a"
+                android:textSize="@dimen/core_main_body"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/tvAgree"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="同意"
+                android:gravity="center"
+                android:textColor="#3a3a3a"
+                android:textSize="@dimen/core_main_body"
+                app:layout_constraintStart_toEndOf="@id/center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+
+</FrameLayout>

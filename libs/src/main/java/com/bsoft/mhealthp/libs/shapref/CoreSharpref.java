@@ -19,6 +19,8 @@ public class CoreSharpref {
     private static final String KEY_ENGINEERING = "engineering";
     //环境
     public static final String KEY_HTTP_ENVIROMENT = "enviroment";
+    //统一隐私协议
+    public static final String AGREE_PRIVACY = "agree_privacy";
 
     /*Util*/
     private Context context;
@@ -87,6 +89,24 @@ public class CoreSharpref {
                     .edit()
                     .putString(KEY_HTTP_ENVIROMENT, enviroment)
                     .commit();
+        }
+    }
+
+    public boolean setAgreePrivacy(boolean flag) {
+        synchronized (this) {
+            return context
+                    .getSharedPreferences(SHARED_NAME, SHARED_MODE)
+                    .edit()
+                    .putBoolean(AGREE_PRIVACY, flag)
+                    .commit();
+        }
+    }
+
+    public boolean isAgreePrivacy() {
+        synchronized (this) {
+            return context
+                    .getSharedPreferences(SHARED_NAME, SHARED_MODE)
+                    .getBoolean(AGREE_PRIVACY, false);
         }
     }
 }
