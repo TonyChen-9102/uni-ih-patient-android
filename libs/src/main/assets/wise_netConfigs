@@ -1,0 +1,20 @@
+[
+  {
+    "environment": "kaifa",
+    "environmentText": "开发",
+    "HttpApiUrl": "http://hcnapp.bsoft.com.cn/",
+    "HttpApiUrl2":"http://hcnfoshan.bsoft.com.cn/"
+  },
+  {
+    "environment": "ceshi",
+    "environmentText": "测试",
+    "HttpApiUrl": "http://testapp.bsoft.com.cn/",
+    "HttpApiUrl2":"https://testfoshan.bsoft.com.cn/"
+  },
+  {
+    "environment": "zhengshi",
+    "environmentText": "正式-华为云",
+    "HttpApiUrl": "https://app.bshcn.com.cn/",
+    "HttpApiUrl2":"https://foshan.bshcn.com.cn/"
+  }
+]

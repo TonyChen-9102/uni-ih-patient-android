@@ -46,7 +46,7 @@ public class PayModule extends WXModule {
 
     @JSMethod(uiThread = true)
     public void startWxPay(String options, JSCallback callback) {
-        Log.d("PayModule", "PayModule;startWxPay;options33=" + options);
+        //Log.d("PayModule", "PayModule;startWxPay;options=" + options);
         this.orderInfo = options;
         mode = "wx";
         payResult = new PayResult(callback);
@@ -70,7 +70,6 @@ public class PayModule extends WXModule {
     @Override
     public void onActivityResume() {
         super.onActivityResume();
-        Log.i("chenkaid", "onActivityResume");
         WxPayManager.getInstance().onActivityResume();
     }
 
