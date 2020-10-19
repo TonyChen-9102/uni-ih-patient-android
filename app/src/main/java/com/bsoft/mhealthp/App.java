@@ -21,7 +21,7 @@ public class App extends AppBase {
         super.onCreate();
         uniInit();
 
-        if(RuningAcitvityUtil.getAppName(getBaseContext()).contains("io.dcloud.unimp")) {
+        if(!RuningAcitvityUtil.getAppName(getBaseContext()).contains("io.dcloud.unimp")) {
             JPushInterface.setDebugMode(CoreSharpref.getInstance().isEngineering());
             JPushInterface.init(this);
         }
