@@ -58,6 +58,11 @@ public class LoadingActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(0, 0);
+    }
 
     private void loadingStart() {
         Timer timer = new Timer(true);
@@ -82,7 +87,8 @@ public class LoadingActivity extends AppCompatActivity {
             JSONObject arguments = new JSONObject();
             arguments.put("appEnv", ConstantsHttp.environment);
             arguments.put("tenantId",getString(R.string.tenantId));
-            DCUniMPSDK.getInstance().startApp(LoadingActivity.this, "__UNI__6348280");
+            DCUniMPSDK.getInstance().startApp(LoadingActivity.this, "__UNI__6348280",MySplashView.class);
+            overridePendingTransition(0, 0);
         } catch (Exception e) {
             e.printStackTrace();
         }
