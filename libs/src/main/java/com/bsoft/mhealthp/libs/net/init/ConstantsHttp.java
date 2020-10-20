@@ -8,7 +8,7 @@ public class ConstantsHttp {
     public static final String Head_Token = "X-Access-Token";
     public static final String Head_Method = "X-Service-Method";
 
-    public static String environment = "kaifa";
+    public static String environment = "";
     // api地址
     public static String httpApiUrl;
 

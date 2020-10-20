@@ -1,0 +1,34 @@
+/**
+ * app 打包
+ */
+def releaseTime() {
+    return new Date().format("yyMMdd")
+}
+
+def releaseTime2() {
+    return new Date().format("yyMMddHHmm")
+}
+
+//apk重命名
+android.applicationVariants.all { variant ->
+    variant.outputs.all { output ->
+        File outputDirectory = new File("./")
+        def fileName
+        def versionName
+
+        def internalVersion = "${project.getName()}-${variant.flavorName}" +
+                "-v${variant.versionName}-${releaseTime2()}"
+        buildConfigField 'String', 'internalversion', "\"" + "${internalVersion}" + "\""
+
+        if (variant.versionName != null) {
+            versionName = variant.versionName
+        } else {
+            versionName = android.defaultConfig.versionName
+        }
+
+        fileName = "${project.getName()}-${variant.flavorName}-${variant.buildType.name}" +
+                "-v${versionName}-${releaseTime()}.apk"
+
+        outputFileName = new File(outputDirectory, fileName)
+    }
+}

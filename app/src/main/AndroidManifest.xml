@@ -57,12 +57,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="false"
-        android:name="com.bsoft.mhealthp.App"
+        android:name=".App"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup,android:name,android:icon,android:label,android:theme,android:supportsRtl">
 
         <activity
-            android:name="com.bsoft.mhealthp.LoadingActivity"
+            android:name=".LoadingActivity"
             android:excludeFromRecents="true"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -73,7 +73,7 @@
         </activity>
 
         <activity
-            android:name="com.bsoft.mhealthp.privacy.PrivacyWebActivity"
+            android:name=".privacy.PrivacyWebActivity"
             android:theme="@style/AppTheme2"/>
 
         <provider
@@ -89,7 +89,7 @@
         <!-- Maps(地图) begin-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="439cfa4bd9cbb6cbd0835992a59be261" />
+            android:value="${GAODE_LBS}" />
         <service android:name="com.amap.api.location.APSService" />
         <!-- Maps(地图) end -->
 
@@ -104,18 +104,14 @@
             android:windowSoftInputMode="adjustResize">
 
             <intent-filter>
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <action android:name="android.intent.action.VIEW" />
-
                 <data android:scheme="h56131bcf" />
             </intent-filter>
         </activity>
 
-        <!--weixin-->
+        <!--weixin start-->
         <activity
             android:name="com.bsoft.mhealthp.foshan.wxapi.WXPayEntryActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -124,11 +120,21 @@
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
 
+        <activity
+            android:name="com.bsoft.mhealthp.demo.wxapi.WXPayEntryActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true"
+            android:process=":io.dcloud.unimp"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <!--weixin end-->
+
         <!--Jpush start-->
         <!-- Since JCore2.0.0 Required SDK核心功能-->
         <!-- 可配置android:process参数将Service放在其他进程中；android:enabled属性不能是false -->
         <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
-        <service android:name="com.bsoft.mhealthp.jpush.JpushService"
+        <service android:name="com.bsoft.mhealthp.app.jpush.JpushService"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -141,7 +147,7 @@
         <!-- 3.3.0开始所有事件将通过该类回调 -->
         <!-- 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
         <receiver
-            android:name="com.bsoft.mhealthp.jpush.MyPushReceiver"
+            android:name="com.bsoft.mhealthp.app.jpush.MyPushReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>

@@ -33,7 +33,7 @@ public class HeaderInterceptor implements Interceptor {
             }
         }
         if (headers == null || (!headers.names().contains("B-Product-Code"))) {
-            requestBuilder.addHeader("B-Product-Code", AppBase.getApplication().getString(R.string.product_name));
+            requestBuilder.addHeader("B-Product-Code", AppBase.getApplication().getString(R.string.tenantId)+".patient_android");
         }
         requestBuilder.addHeader("User-Agent", HeadUtil.getUserAgent());
 

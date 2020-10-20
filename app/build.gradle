@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply from: "${rootProject.rootDir.absolutePath}/mygradle/appPackage.gradle"
+
 //必须配置
 def mfph = [
         //宿主包名
@@ -20,22 +22,72 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.bsoft.mhealthp.foshan"
         minSdkVersion 22
         targetSdkVersion 26
-        versionCode 117
-        versionName "2.7.4"
+
+        vectorDrawables.useSupportLibrary = true
 
         ndk {
             abiFilters 'x86','armeabi-v7a',"arm64-v8a" //不支持armeabi
         }
         manifestPlaceholders = mfph
+    }
 
-        manifestPlaceholders = [
-                JPUSH_PKGNAME : applicationId,
-                JPUSH_APPKEY : "136ec48b0d2590a6fec42000", //JPush 上注册的包名对应的 Appkey.
-                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
-        ]
+    //productFlavors
+    flavorDimensions 'default', 'environment'
+    productFlavors {
+        demo {
+            dimension "default"
+            applicationId "com.bsoft.mhealthp.demo"
+            versionCode 2
+            versionName "2.8.0"
+
+            manifestPlaceholders = [GAODE_LBS    : "a62307f7055f0a2882d08a0c3a2f63bb",
+                                    JPUSH_PKGNAME: applicationId,
+                                    JPUSH_APPKEY : "e29f8de29f0d06d642a348ce",
+                                    JPUSH_CHANNEL: "developer-default"
+            ]
+        }
+        foshan {
+            dimension "default"
+            applicationId "com.bsoft.mhealthp.foshan"
+            versionCode 280
+            versionName "2.8.0"
+
+            manifestPlaceholders = [GAODE_LBS    : "439cfa4bd9cbb6cbd0835992a59be261",
+                                    JPUSH_PKGNAME: applicationId,
+                                    JPUSH_APPKEY : "136ec48b0d2590a6fec42000",
+                                    JPUSH_CHANNEL: "developer-default"
+            ]
+        }
+        //***************************网络环境配置********************************
+        kaifa {
+            dimension "environment"
+            buildConfigField 'String', 'environment', '"develop"'//开发
+        }
+//        ceshi{
+//            dimension "environment"
+//            buildConfigField 'String', 'environment', '"test"' //测试
+//        }
+        zhengshi {
+            dimension "environment"
+            buildConfigField 'String', 'environment', '"release"' //正式-华为云
+        }
+    }
+
+    sourceSets {
+        foshan {
+            jniLibs.srcDirs = ['libs']
+            java.srcDirs = ['src/main/java', 'src/foshan/java']
+            res.srcDirs = ['src/main/res', 'src/foshan/res']
+            assets.srcDirs = ['src/main/assets', 'src/foshan/assets']
+        }
+        demo {
+            jniLibs.srcDirs = ['libs']
+            java.srcDirs = ['src/main/java', 'src/demo/java']
+            res.srcDirs = ['src/main/res', 'src/demo/res']
+            assets.srcDirs = ['src/main/assets', 'src/demo/assets']
+        }
     }
 
     buildTypes {

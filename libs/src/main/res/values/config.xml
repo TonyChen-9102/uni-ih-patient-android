@@ -1,4 +1,3 @@
 <resources>
-    <string name="product_name">hcn.fs-nhqrmyy.patient_android</string>
-    <string name="product_code">hcn.fs-nhqrmyy.patient</string>
+    <string name="tenantId">""</string>
 </resources>
