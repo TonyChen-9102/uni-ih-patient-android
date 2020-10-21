@@ -1,11 +1,9 @@
 package com.bsoft.mhealthp.app;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 import io.dcloud.feature.sdk.Interface.IDCUniMPAppSplashView;
 
