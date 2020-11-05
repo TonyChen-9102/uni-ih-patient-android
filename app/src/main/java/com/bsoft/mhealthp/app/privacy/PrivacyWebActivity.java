@@ -158,8 +158,9 @@ public class PrivacyWebActivity extends AppCompatActivity {
 
                     @Override
                     protected void onHandleSuccess(ArrayList<PrivacyVo> value) {
+                        load("http://10.0.50.24:8082/#/?tenantId=hcn.fs-nhqrmyy");
                         if (value != null && !value.isEmpty()) {
-                            load(value.get(0).getUrl());
+                            //load(value.get(0).getUrl());
                         } else {
                         }
                     }

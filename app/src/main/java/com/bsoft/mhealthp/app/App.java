@@ -3,6 +3,7 @@ package com.bsoft.mhealthp.app;
 import android.util.Log;
 
 import com.bsoft.mhealthp.app.jpush.JpushModule;
+import com.bsoft.mhealthp.app.nativeModule.NativeEnvConfigModule;
 import com.bsoft.mhealthp.libs.AppBase;
 import com.bsoft.mhealthp.libs.net.init.ConstantsHttp;
 import com.bsoft.mhealthp.libs.shapref.CoreSharpref;
@@ -45,6 +46,7 @@ public class App extends AppBase {
         try {
             WXSDKEngine.registerModule("NativePaymentModule", PayModule.class);
             WXSDKEngine.registerModule("UserInfoSyncModule", JpushModule.class);
+//            WXSDKEngine.registerModule("NativeEnvConfigModule", NativeEnvConfigModule.class);
         } catch (WXException e) {
             e.printStackTrace();
         }
