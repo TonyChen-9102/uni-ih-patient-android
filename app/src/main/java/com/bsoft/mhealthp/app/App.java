@@ -8,6 +8,9 @@ import com.bsoft.mhealthp.libs.AppBase;
 import com.bsoft.mhealthp.libs.net.init.ConstantsHttp;
 import com.bsoft.mhealthp.libs.shapref.CoreSharpref;
 import com.bsoft.mhealthp.paymodule.PayModule;
+import com.demo.ck.videomodule.BsoftVideo;
+import com.demo.ck.videomodule.PusherComponent;
+import com.demo.ck.videomodule.VideoComponent;
 import com.taobao.weex.WXSDKEngine;
 import com.taobao.weex.common.WXException;
 
@@ -46,7 +49,10 @@ public class App extends AppBase {
         try {
             WXSDKEngine.registerModule("NativePaymentModule", PayModule.class);
             WXSDKEngine.registerModule("UserInfoSyncModule", JpushModule.class);
-//            WXSDKEngine.registerModule("NativeEnvConfigModule", NativeEnvConfigModule.class);
+            WXSDKEngine.registerModule("NativeEnvConfigModule", NativeEnvConfigModule.class);
+            WXSDKEngine.registerComponent("bsoftVideo", VideoComponent.class);
+            WXSDKEngine.registerComponent("bsoftPush", PusherComponent.class);
+//            WXSDKEngine.registerComponent("bsoftVideo", BsoftVideo.class);
         } catch (WXException e) {
             e.printStackTrace();
         }

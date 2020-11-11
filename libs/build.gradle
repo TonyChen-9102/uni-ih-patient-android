@@ -60,4 +60,12 @@ dependencies {
     api 'cn.jiguang.sdk:jcore:2.5.5'  // 此处以JCore 2.4.2 版本为例。
     //Jpush end
 
+    //ijkPlayer start
+//    api project(':ijkplayerso')
+//    api project(':ijkplayer-java')
+//    api project(':ijkplayer-armv7a')
+//    api project(':ijkplayer-arm64')
+//    api project(':ijkplayer-x86')
+//    api project(':ijkplayer-x86_64')
+    //ijkPlayer end
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bsoft.mhealthp.app.MyPlayerDemo">
+
+    <com.bsoft.mhealthp.libs.utils.ijkplayer.VideoPlayerIJK
+        android:id="@+id/ijkPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="112233"
+        android:layout_gravity="center"
+        android:textSize="18sp"
+        android:textColor="#F20C0C"/>
+
+</FrameLayout>

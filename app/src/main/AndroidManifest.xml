@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.bsoft.mhealthp.app">
-
-    <!-- ****************** uni start ***********************-->
+    <!-- ****************** uni start *********************** -->
     <!-- Barcode(二维码)  begin -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -12,9 +11,7 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.FLASHLIGHT" />
-    <!-- Barcode(二维码)  end -->
-
+    <uses-permission android:name="android.permission.FLASHLIGHT" /> <!-- Barcode(二维码)  end -->
     <!-- Maps(地图) begin -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -25,9 +22,7 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
-    <!-- Maps(地图) end -->
-
+    <uses-permission android:name="android.permission.READ_LOGS" /> <!-- Maps(地图) end -->
     <!-- 基座删除的部分权限 -->
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
@@ -47,29 +42,27 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <uses-permission android:name="android.permission.WRITE_SMS" />
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <!--LivePusher start-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.FLASHLIGHT"/>
-    <uses-feature android:name="android.hardware.camera"/>
-    <uses-feature android:name="android.hardware.camera.autofocus"/>
-    <!--LivePusher end-->
-    <!-- ****************** uni end ***********************-->
+    <uses-permission android:name="android.permission.READ_SMS" /> <!-- LivePusher start -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
 
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- LivePusher end -->
+    <!-- ****************** uni end *********************** -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="false"
-        android:name=".App"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup,android:name,android:icon,android:label,android:theme,android:supportsRtl">
-
+        <activity android:name=".MyPlayerDemo"></activity>
         <activity
             android:name=".LoadingActivity"
             android:excludeFromRecents="true"
@@ -80,10 +73,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".privacy.PrivacyWebActivity"
-            android:theme="@style/AppTheme2"/>
+            android:theme="@style/AppTheme2" />
 
         <provider
             android:name="io.dcloud.common.util.DCloud_FileProvider"
@@ -93,15 +85,12 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/dcloud_file_provider" />
-        </provider>
-
-        <!-- Maps(地图) begin-->
+        </provider> <!-- Maps(地图) begin -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="${GAODE_LBS}" />
-        <service android:name="com.amap.api.location.APSService" />
-        <!-- Maps(地图) end -->
 
+        <service android:name="com.amap.api.location.APSService" /> <!-- Maps(地图) end -->
         <activity
             android:name="io.dcloud.PandoraEntryActivity"
             android:configChanges="orientation|keyboardHidden|screenSize|mcc|mnc|fontScale|keyboard"
@@ -111,61 +100,54 @@
             android:screenOrientation="user"
             android:theme="@style/DCloudTheme"
             android:windowSoftInputMode="adjustResize">
-
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <action android:name="android.intent.action.VIEW" />
+
                 <data android:scheme="h56131bcf" />
             </intent-filter>
-        </activity>
-
-        <!--weixin start-->
+        </activity> <!-- weixin start -->
         <activity
             android:name="com.bsoft.mhealthp.foshan.wxapi.WXPayEntryActivity"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
-            android:process=":io.dcloud.unimp"
             android:launchMode="singleTop"
+            android:process=":io.dcloud.unimp"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-
         <activity
             android:name="com.bsoft.mhealthp.demo.wxapi.WXPayEntryActivity"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
-            android:process=":io.dcloud.unimp"
             android:launchMode="singleTop"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-
-        <!--weixin end-->
-
-        <!--Jpush start-->
-        <!-- Since JCore2.0.0 Required SDK核心功能-->
+            android:process=":io.dcloud.unimp"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" /> <!-- weixin end -->
+        <!-- Jpush start -->
+        <!-- Since JCore2.0.0 Required SDK核心功能 -->
         <!-- 可配置android:process参数将Service放在其他进程中；android:enabled属性不能是false -->
         <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
-        <service android:name="com.bsoft.mhealthp.app.jpush.JpushService"
+        <service
+            android:name=".jpush.JpushService"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
                 <action android:name="cn.jiguang.user.service.action" />
             </intent-filter>
-        </service>
-
-        <!-- Required since 3.0.7 -->
+        </service> <!-- Required since 3.0.7 -->
         <!-- 新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 -->
         <!-- 3.3.0开始所有事件将通过该类回调 -->
         <!-- 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
         <receiver
-            android:name="com.bsoft.mhealthp.app.jpush.MyPushReceiver"
+            android:name=".jpush.MyPushReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+
                 <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
-        <!--Jpush end-->
-
     </application>
 
 </manifest>

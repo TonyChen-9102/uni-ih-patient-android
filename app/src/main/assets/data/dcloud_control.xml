@@ -1,4 +1,4 @@
-<hbuilder version="1.9.9.80110" debug="false" syncDebug ="false">
+<hbuilder version="1.9.9.80110" debug="true" syncDebug ="true">
     <apps>
         <app appid="unimp" appver="1.0"/>
     </apps>

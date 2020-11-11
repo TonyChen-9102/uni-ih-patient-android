@@ -4,7 +4,7 @@ apply from: "${rootProject.rootDir.absolutePath}/mygradle/appPackage.gradle"
 //必须配置
 def mfph = [
         //宿主包名
-        "apk.applicationId" : "com.bsoft.mhealthp.foshan",
+        "apk.applicationId": "com.bsoft.mhealthp.foshan",
 ]
 android {
     compileSdkVersion 28
@@ -28,7 +28,7 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         ndk {
-            abiFilters 'x86','armeabi-v7a',"arm64-v8a" //不支持armeabi
+            abiFilters 'x86', 'armeabi-v7a', "arm64-v8a" //不支持armeabi
         }
         manifestPlaceholders = mfph
     }
@@ -121,4 +121,7 @@ dependencies {
     implementation project(':libs')
     implementation project(':paymodule')
     implementation project(':jpushModule')
+    implementation project(':videoModule')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
 }

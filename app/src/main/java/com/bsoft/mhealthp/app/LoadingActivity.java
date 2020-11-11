@@ -88,6 +88,7 @@ public class LoadingActivity extends AppCompatActivity {
             arguments.put("appEnv", ConstantsHttp.environment);
             arguments.put("tenantId",getString(R.string.tenantId));
             DCUniMPSDK.getInstance().startApp(LoadingActivity.this, "__UNI__6348280",MySplashView.class);
+//            MyPlayerDemo.appStart(LoadingActivity.this);
             overridePendingTransition(0, 0);
         } catch (Exception e) {
             e.printStackTrace();

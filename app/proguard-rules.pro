@@ -122,6 +122,7 @@
 
 -keep class * implements com.taobao.weex.IWXObject{*;}
 -keep public class * extends com.taobao.weex.common.WXModule{*;}
+-keep public class * extends com.taobao.weex.ui.component.WXComponent{*;}
 
 
 -keepattributes Signature
