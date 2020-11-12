@@ -1,3 +1,4 @@
 <resources>
     <string name="tenantId">""</string>
+    <string name="b_version">""</string>
 </resources>

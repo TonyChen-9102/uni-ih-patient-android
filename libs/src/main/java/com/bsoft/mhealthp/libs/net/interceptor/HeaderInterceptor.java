@@ -32,6 +32,9 @@ public class HeaderInterceptor implements Interceptor {
                 requestBuilder.addHeader("X-Signature", digest);
             }
         }
+        if (headers == null || (!headers.names().contains("B-Version"))) {
+            requestBuilder.addHeader("B-Version", AppBase.getApplication().getString(R.string.b_version));
+        }
         if (headers == null || (!headers.names().contains("B-Product-Code"))) {
             requestBuilder.addHeader("B-Product-Code", AppBase.getApplication().getString(R.string.tenantId)+".patient_android");
         }

@@ -31,9 +31,9 @@ import io.reactivex.disposables.Disposable;
 public class PrivacyWebActivity extends AppCompatActivity {
     /*Default*/
     //隐私协议
-    public static String AGREE_TYPE_PRIVATE = "1";
+    public static String AGREE_TYPE_PRIVATE = "03";
     //用户注册协议
-    public static String AGREE_TYPE_SERVICE = "2";
+    public static String AGREE_TYPE_SERVICE = "04";
 
     /*Util*/
     /*Flag*/
@@ -141,14 +141,13 @@ public class PrivacyWebActivity extends AppCompatActivity {
 
     private void getData() {
         ArrayMap<String, String> head = new ArrayMap<>();
-        head.put(ConstantsHttp.Head_Id, ConstantsHttp.CAS_BASE_AGREEMENT_VERSION_SERVICE);
-        head.put(ConstantsHttp.Head_Method, "findBaseAgreementVersionsByProduct");
+        head.put(ConstantsHttp.Head_Id, "cas_ih_foshan.protocolService");
+        head.put(ConstantsHttp.Head_Method, "findProtocolListByType");
 
         ArrayList body = new ArrayList();
-        ArrayMap<String, String> map = new ArrayMap();
-        map.put("agreeType", agreeType);
-        map.put("productCode", AppBase.getApplication().getString(R.string.tenantId)+".patient");
-        body.add(map);
+        String[] strs = new String[1];
+        strs[0] = agreeType;
+        body.add(strs);
 
         PostManager.getInstance().postList("*.jsonRequest", head, body, PrivacyVo.class,
                 new BaseObserver<ArrayList<PrivacyVo>>() {
@@ -158,10 +157,8 @@ public class PrivacyWebActivity extends AppCompatActivity {
 
                     @Override
                     protected void onHandleSuccess(ArrayList<PrivacyVo> value) {
-                        load("http://10.0.50.24:8082/#/?tenantId=hcn.fs-nhqrmyy");
                         if (value != null && !value.isEmpty()) {
-                            //load(value.get(0).getUrl());
-                        } else {
+                            load(value.get(0).getUrl());
                         }
                     }
 

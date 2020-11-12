@@ -28,7 +28,7 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         ndk {
-            abiFilters 'x86', 'armeabi-v7a', "arm64-v8a" //不支持armeabi
+            abiFilters 'armeabi-v7a', "arm64-v8a" //不支持armeabi
         }
         manifestPlaceholders = mfph
     }
@@ -51,8 +51,8 @@ android {
         foshan {
             dimension "default"
             applicationId "com.bsoft.mhealthp.foshan"
-            versionCode 280
-            versionName "2.8.0"
+            versionCode 281
+            versionName "2.8.1"
 
             manifestPlaceholders = [GAODE_LBS    : "439cfa4bd9cbb6cbd0835992a59be261",
                                     JPUSH_PKGNAME: applicationId,

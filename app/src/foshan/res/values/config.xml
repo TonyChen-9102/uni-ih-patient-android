@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">南海人民医院</string>
     <string name="tenantId">hcn.fs-nhqrmyy</string>
+    <string name="b_version">"2.8.1"</string>
 </resources>
